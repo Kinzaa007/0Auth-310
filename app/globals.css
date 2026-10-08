@@ -1,0 +1,1193 @@
+@import "tailwindcss";
+
+/* =====================================================
+WHITE / GREEN THEME
+===================================================== */
+
+:root {
+--background: #f4f8f5;
+--white: #ffffff;
+
+--green: #18a558;
+--green-dark: #087f3f;
+--green-light: #dff7e8;
+--green-soft: #eefaf2;
+--green-border: #b9e5c8;
+
+--text: #14251b;
+--text-secondary: #4d6054;
+--text-muted: #7b8b81;
+
+--border: #dce8df;
+--border-light: #edf3ef;
+
+--error: #dc2626;
+--error-bg: #fff1f1;
+--error-border: #fecaca;
+}
+
+@theme inline {
+--color-background: var(--background);
+--color-foreground: var(--text);
+
+--font-sans:
+Arial,
+Helvetica,
+sans-serif;
+
+--font-mono: monospace;
+}
+
+/* =====================================================
+RESET
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  }
+
+html,
+body {
+margin: 0;
+padding: 0;
+}
+
+body {
+min-height: 100vh;
+
+background:
+linear-gradient(
+135deg,
+#f1fbf4 0%,
+#ffffff 45%,
+#f5faf7 100%
+);
+
+color: var(--text);
+
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+}
+
+/* =====================================================
+TOP BAR
+===================================================== */
+
+.auth-area {
+width: 100%;
+min-height: 68px;
+
+padding: 0 7%;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+background: #0b3d24;
+
+color: white;
+
+border-bottom: 3px solid var(--green);
+
+position: relative;
+z-index: 20;
+}
+
+.user-info {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.user-welcome {
+color: #c8dfd0;
+font-size: 13px;
+}
+
+.user-name {
+color: white;
+font-size: 15px;
+font-weight: 700;
+}
+
+.login-form,
+.logout-form {
+margin: 0;
+padding: 0;
+
+background: transparent;
+
+border: none;
+
+box-shadow: none;
+}
+
+.login-button,
+.logout-button {
+padding: 9px 18px;
+
+background: white;
+
+color: var(--green-dark);
+
+border: none;
+
+border-radius: 7px;
+
+font-family: inherit;
+font-size: 13px;
+font-weight: 700;
+
+cursor: pointer;
+
+transition:
+background 0.2s ease,
+transform 0.2s ease;
+}
+
+.login-button:hover,
+.logout-button:hover {
+background: var(--green-light);
+
+transform: translateY(-1px);
+}
+
+/* =====================================================
+MAIN
+===================================================== */
+
+main {
+width: min(1240px, 90%);
+
+margin: 0 auto;
+
+padding: 55px 0 80px;
+}
+
+/* =====================================================
+HERO HEADER
+===================================================== */
+
+.page-heading {
+min-height: 210px;
+
+margin-bottom: 38px;
+
+padding: 35px 40px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+gap: 30px;
+
+background:
+linear-gradient(
+115deg,
+#ffffff 0%,
+#f0faf3 100%
+);
+
+border: 1px solid var(--border);
+
+border-radius: 22px;
+
+box-shadow:
+0 14px 35px rgba(12, 84, 42, 0.07);
+
+position: relative;
+
+overflow: hidden;
+}
+
+.page-heading::after {
+content: "";
+
+position: absolute;
+
+width: 240px;
+height: 240px;
+
+right: -80px;
+top: -100px;
+
+border-radius: 50%;
+
+background: var(--green-light);
+
+opacity: 0.7;
+}
+
+.page-heading h1 {
+position: relative;
+z-index: 1;
+
+margin: 0 0 9px;
+
+color: var(--green-dark);
+
+font-size: 38px;
+
+font-weight: 800;
+
+letter-spacing: -1px;
+}
+
+.page-heading p {
+position: relative;
+z-index: 1;
+
+margin: 0;
+
+color: var(--text-muted);
+
+font-size: 15px;
+}
+
+.load-button {
+position: relative;
+z-index: 2;
+
+flex-shrink: 0;
+
+padding: 13px 23px;
+
+background: var(--green);
+
+color: white;
+
+border: none;
+
+border-radius: 10px;
+
+font-family: inherit;
+
+font-size: 14px;
+
+font-weight: 700;
+
+cursor: pointer;
+
+box-shadow:
+0 8px 20px rgba(24, 165, 88, 0.2);
+
+transition:
+background 0.2s ease,
+transform 0.2s ease;
+}
+
+.load-button:hover {
+background: var(--green-dark);
+
+transform: translateY(-2px);
+}
+
+.load-button:disabled {
+opacity: 0.55;
+
+cursor: not-allowed;
+
+transform: none;
+}
+
+/* =====================================================
+FORM AREA
+เปลี่ยนจาก 2 กล่อง -> TOOLBAR แนวนอน
+===================================================== */
+
+.form-area {
+display: grid;
+
+grid-template-columns:
+1.6fr
+1fr;
+
+gap: 18px;
+
+margin-bottom: 45px;
+}
+
+.form-area form {
+width: 100%;
+
+margin: 0;
+
+padding: 22px 24px;
+
+background: #ffffff;
+
+border: 1px solid var(--border);
+
+border-radius: 13px;
+
+box-shadow:
+0 6px 20px rgba(16, 77, 40, 0.05);
+
+position: relative;
+}
+
+.form-area form:first-child {
+border-left: 5px solid var(--green);
+}
+
+.form-area form:nth-child(2) {
+background:
+linear-gradient(
+145deg,
+#f0faf3,
+#ffffff
+);
+}
+
+.form-area form > div {
+width: 100%;
+
+margin-bottom: 13px;
+}
+
+.form-area form > div:last-child {
+margin-bottom: 0;
+}
+
+.form-area label {
+display: block;
+
+margin-bottom: 6px;
+
+color: var(--text-secondary);
+
+font-size: 12px;
+
+font-weight: 700;
+}
+
+.form-area input,
+.form-area select,
+.form-area textarea {
+display: block;
+
+width: 100%;
+
+max-width: 100%;
+
+min-width: 0;
+
+padding: 10px 12px;
+
+background: white;
+
+color: var(--text);
+
+border: 1px solid #cad9cf;
+
+border-radius: 8px;
+
+outline: none;
+
+font-family: inherit;
+
+font-size: 14px;
+
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.form-area input:focus,
+.form-area select:focus,
+.form-area textarea:focus {
+border-color: var(--green);
+
+box-shadow:
+0 0 0 3px rgba(24, 165, 88, 0.1);
+}
+
+.form-area textarea {
+min-height: 85px;
+
+resize: vertical;
+}
+
+.form-area [role="alert"],
+.form-area .error {
+display: block;
+
+width: 100%;
+
+margin-top: 5px;
+
+padding: 6px 9px;
+
+background: var(--error-bg);
+
+color: var(--error);
+
+border: 1px solid var(--error-border);
+
+border-radius: 7px;
+
+font-size: 12px;
+
+line-height: 1.4;
+}
+
+/* =====================================================
+FORM BUTTON
+===================================================== */
+
+.form-area form button {
+padding: 9px 17px;
+
+background: var(--green);
+
+color: white;
+
+border: none;
+
+border-radius: 8px;
+
+font-family: inherit;
+
+font-size: 13px;
+
+font-weight: 700;
+
+cursor: pointer;
+
+transition:
+background 0.2s ease,
+transform 0.2s ease;
+}
+
+.form-area form button:hover {
+background: var(--green-dark);
+
+transform: translateY(-1px);
+}
+
+.form-area form button:disabled {
+opacity: 0.55;
+
+cursor: not-allowed;
+}
+
+/* =====================================================
+PRODUCTS SECTION
+===================================================== */
+
+.products-section {
+width: 100%;
+
+margin-top: 0;
+}
+
+.products-section::before {
+content: "PRODUCT COLLECTION";
+
+display: block;
+
+margin-bottom: 20px;
+
+color: var(--green-dark);
+
+font-size: 12px;
+
+font-weight: 800;
+
+letter-spacing: 2px;
+}
+
+/* =====================================================
+PRODUCT GRID
+เปลี่ยนเป็น 4 คอลัมน์
+===================================================== */
+
+.product-grid {
+display: grid;
+
+grid-template-columns:
+repeat(4, minmax(0, 1fr));
+
+gap: 17px;
+
+width: 100%;
+}
+
+/* =====================================================
+PRODUCT CARD
+===================================================== */
+
+.product-card {
+min-width: 0;
+
+overflow: hidden;
+
+display: flex;
+
+flex-direction: column;
+
+background: white;
+
+border: 1px solid var(--border);
+
+border-radius: 14px;
+
+box-shadow:
+0 5px 18px rgba(15, 72, 37, 0.05);
+
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease,
+border-color 0.2s ease;
+}
+
+.product-card:hover {
+transform: translateY(-6px);
+
+border-color: var(--green-border);
+
+box-shadow:
+0 16px 30px rgba(15, 100, 48, 0.12);
+}
+
+/* =====================================================
+PRODUCT IMAGE
+===================================================== */
+
+.product-image {
+width: 100%;
+
+height: 175px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+background:
+linear-gradient(
+145deg,
+#f0faf3,
+#ffffff
+);
+
+border-bottom: 1px solid var(--border-light);
+
+overflow: hidden;
+}
+
+.product-image img {
+width: 100%;
+
+height: 100%;
+
+padding: 16px;
+
+object-fit: contain;
+
+transition:
+transform 0.25s ease;
+}
+
+.product-card:hover .product-image img {
+transform: scale(1.06);
+}
+
+.no-image {
+color: #92a198;
+
+font-size: 12px;
+}
+
+/* =====================================================
+PRODUCT CONTENT
+===================================================== */
+
+.product-content {
+padding: 17px;
+
+display: flex;
+
+flex: 1;
+
+flex-direction: column;
+}
+
+.product-category {
+width: fit-content;
+
+display: inline-block;
+
+margin-bottom: 8px;
+
+padding: 4px 8px;
+
+background: var(--green-light);
+
+color: var(--green-dark);
+
+border-radius: 5px;
+
+font-size: 10px;
+
+font-weight: 800;
+}
+
+.product-card h2 {
+min-height: 42px;
+
+margin: 0 0 14px;
+
+color: var(--text);
+
+font-size: 16px;
+
+font-weight: 800;
+
+line-height: 1.35;
+}
+
+/* =====================================================
+PRICE / STOCK
+===================================================== */
+
+.product-info {
+display: grid;
+
+grid-template-columns: 1fr auto;
+
+align-items: end;
+
+gap: 10px;
+
+margin-top: auto;
+
+padding-top: 13px;
+
+border-top: 1px solid var(--border-light);
+}
+
+.info-label {
+display: block;
+
+margin-bottom: 3px;
+
+color: var(--text-muted);
+
+font-size: 10px;
+}
+
+.product-price {
+color: var(--green-dark);
+
+font-size: 18px;
+
+font-weight: 800;
+}
+
+.stock {
+text-align: right;
+
+color: var(--text-secondary);
+
+font-size: 11px;
+}
+
+/* =====================================================
+ACTION BUTTONS
+===================================================== */
+
+.product-actions {
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 7px;
+
+margin-top: 14px;
+}
+
+.product-actions a {
+padding: 8px 7px;
+
+text-align: center;
+
+text-decoration: none;
+
+border-radius: 7px;
+
+font-size: 11px;
+
+font-weight: 700;
+
+transition:
+background 0.2s ease,
+border-color 0.2s ease;
+}
+
+.edit-link {
+background: var(--green);
+
+color: white;
+
+border: 1px solid var(--green);
+}
+
+.edit-link:hover {
+background: var(--green-dark);
+
+border-color: var(--green-dark);
+}
+
+.delete-link {
+background: white;
+
+color: #65736a;
+
+border: 1px solid #d0ddd4;
+}
+
+.delete-link:hover {
+background: #f7faf8;
+
+border-color: #b9cabe;
+}
+
+/* =====================================================
+STATUS
+===================================================== */
+
+.status-box {
+padding: 16px;
+
+background: var(--green-soft);
+
+color: var(--green-dark);
+
+border: 1px solid var(--green-border);
+
+border-radius: 10px;
+
+text-align: center;
+
+font-size: 13px;
+
+font-weight: 700;
+}
+
+.empty-box {
+padding: 45px 25px;
+
+background: white;
+
+color: var(--text-muted);
+
+border: 1px dashed #bfd1c5;
+
+border-radius: 14px;
+
+text-align: center;
+}
+
+/* =====================================================
+ERROR
+===================================================== */
+
+.error-box {
+margin: 0;
+
+padding: 14px 16px;
+
+background: var(--error-bg);
+
+color: var(--error);
+
+border: 1px solid var(--error-border);
+
+border-radius: 9px;
+
+font-size: 13px;
+
+font-weight: 600;
+}
+
+/* =====================================================
+EDIT / DELETE
+===================================================== */
+
+.management-page {
+min-height: 100vh;
+
+padding: 60px 20px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+background:
+radial-gradient(
+circle at top left,
+#dff7e8,
+transparent 35%
+),
+#f4f8f5;
+}
+
+.management-card {
+width: 100%;
+
+max-width: 620px;
+
+margin: 0 auto;
+
+padding: 38px;
+
+background: white;
+
+border: 1px solid var(--border);
+
+border-radius: 18px;
+
+box-shadow:
+0 20px 50px rgba(15, 76, 38, 0.1);
+}
+
+.management-card h1 {
+margin: 0 0 28px;
+
+color: var(--green-dark);
+
+font-size: 28px;
+
+font-weight: 800;
+}
+
+.edit-form {
+display: flex;
+
+flex-direction: column;
+
+gap: 18px;
+}
+
+.form-group {
+display: flex;
+
+flex-direction: column;
+
+gap: 7px;
+}
+
+.form-group label {
+color: var(--text-secondary);
+
+font-size: 13px;
+
+font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+width: 100%;
+
+padding: 12px 14px;
+
+border: 1px solid #cad9cf;
+
+border-radius: 9px;
+
+background: white;
+
+color: var(--text);
+
+font-size: 14px;
+
+outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+border-color: var(--green);
+
+box-shadow:
+0 0 0 3px rgba(24, 165, 88, 0.1);
+}
+
+/* =====================================================
+MANAGEMENT BUTTONS
+===================================================== */
+
+.management-actions {
+display: flex;
+
+gap: 10px;
+
+margin-top: 10px;
+}
+
+.primary-button {
+padding: 11px 24px;
+
+border: none;
+
+border-radius: 8px;
+
+background: var(--green);
+
+color: white;
+
+font-size: 14px;
+
+font-weight: 700;
+
+cursor: pointer;
+}
+
+.primary-button:hover {
+background: var(--green-dark);
+}
+
+.secondary-button {
+display: inline-flex;
+
+align-items: center;
+
+justify-content: center;
+
+padding: 10px 24px;
+
+border: 1px solid #cad9cf;
+
+border-radius: 8px;
+
+background: white;
+
+color: var(--text-secondary);
+
+text-decoration: none;
+
+font-size: 14px;
+
+font-weight: 700;
+}
+
+.secondary-button:hover {
+background: var(--green-soft);
+
+border-color: var(--green-border);
+}
+
+/* =====================================================
+DELETE
+===================================================== */
+
+.delete-card {
+max-width: 540px;
+
+text-align: center;
+}
+
+.delete-card h1 {
+margin-bottom: 20px;
+
+color: var(--error);
+}
+
+.delete-question {
+margin: 0 0 18px;
+
+color: var(--text-secondary);
+
+font-size: 16px;
+
+line-height: 1.7;
+}
+
+.delete-question strong {
+color: var(--green-dark);
+
+font-weight: 800;
+}
+
+.delete-warning {
+margin: 0 0 25px;
+
+padding: 15px;
+
+border: 1px solid var(--error-border);
+
+border-radius: 9px;
+
+background: var(--error-bg);
+
+color: #b91c1c;
+
+font-size: 13px;
+
+line-height: 1.6;
+}
+
+.delete-card .management-actions {
+justify-content: center;
+}
+
+.delete-button {
+padding: 11px 24px;
+
+border: none;
+
+border-radius: 8px;
+
+background: var(--error);
+
+color: white;
+
+font-size: 14px;
+
+font-weight: 700;
+
+cursor: pointer;
+}
+
+.delete-button:hover {
+background: #b91c1c;
+}
+
+/* =====================================================
+TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+main {
+width: 92%;
+}
+
+.product-grid {
+grid-template-columns:
+repeat(3, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 850px) {
+.page-heading {
+padding: 30px;
+}
+
+.form-area {
+grid-template-columns: 1fr;
+}
+
+.product-grid {
+grid-template-columns:
+repeat(2, minmax(0, 1fr));
+}
+}
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+.auth-area {
+min-height: auto;
+
+
+padding: 14px 5%;
+
+flex-direction: column;
+
+align-items: stretch;
+
+gap: 10px;
+
+
+}
+
+.user-info {
+justify-content: center;
+}
+
+.logout-form,
+.logout-button {
+width: 100%;
+}
+
+main {
+width: 92%;
+
+padding: 25px 0 50px;
+
+
+}
+
+.page-heading {
+min-height: auto;
+
+padding: 27px 22px;
+
+flex-direction: column;
+
+align-items: flex-start;
+
+
+
+}
+
+.page-heading h1 {
+font-size: 29px;
+}
+
+.load-button {
+width: 100%;
+}
+
+.form-area {
+gap: 14px;
+}
+
+.form-area form {
+padding: 19px;
+}
+
+.product-grid {
+grid-template-columns: 1fr;
+
+
+gap: 15px;
+
+
+}
+
+.product-image {
+height: 210px;
+}
+
+.management-page {
+padding: 25px 15px;
+}
+
+.management-card {
+padding: 27px 20px;
+}
+
+.management-card h1 {
+font-size: 24px;
+}
+
+.management-actions {
+flex-direction: column;
+}
+
+.primary-button,
+.delete-button,
+.secondary-button {
+width: 100%;
+}
+}
